@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 
 blogSchema = new Schema(
     {
-        title: {
+        banner: {
             type: String,
             required: true,
         },
-        banner: {
+        title: {
             type: String,
             required: true,
         },

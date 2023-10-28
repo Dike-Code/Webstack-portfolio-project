@@ -5,20 +5,20 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>NodeJs Mastery | <%=title%></title>
+        <title>NodeJs Mastery | <%=headTitle%></title>
         <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
         <%- include('./partials/nav.ejs')%>
         <section class="blogSection">
             <div class="container">
-                <h2 class="allBlog"><%=head%></h2>
+                <h2 class="allBlog"><%=title%></h2>
                 <div class="blog-content grid">
                     <% if(blogs.length > 0) { %> <% blogs.forEach((blog) => {%>
                     <div class="card">
                         <div class="cardBody">
                             <h3><%= blog.title%></h3>
-                            <p><%= blog.letter%></p>
+                            <p><%= blog.nugget%></p>
                             <a href="" class="cardBtn">Read More...</a>
                         </div>
                     </div>
