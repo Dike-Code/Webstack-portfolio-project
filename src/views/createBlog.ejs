@@ -1,0 +1,91 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NodeJs Mastery</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+
+    <body>
+        <%- include('./partials/nav.ejs')%>
+        <section class="createBlog">
+            <div class="container">
+                <div class="blogContent">
+                    <h3 class="form-title"> Create a Blog </h3>
+                </div>
+                <form action="/blogs" class="form" method="POST">
+                    <div class="form-contrl">
+                        <label for="title">Title</label>
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            placeholder="Title"
+                        />
+                    </div>
+                    <div class="form-contrl">
+                        <label for="banner">Banner Url</label>
+                        <input
+                            type="text"
+                            name="banner"
+                            id="nugget"
+                            placeholder="nugget"
+                        />
+                    </div>
+                    <div class="form-contrl">
+                        <label for="nugget">Nugget</label>
+                        <input
+                            type="text"
+                            name="nugget"
+                            id="nugget"
+                            placeholder="nugget"
+                        />
+                    </div>
+                    <small></small>
+                    <div class="form-contrl">
+                        <label for="blog-text">Notes</label>
+                        <textarea
+                            name="body"
+                            id="blog-text"
+                            placeholder="Write blog..."
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="btn formBtn">Add Blog</button>
+                </form>
+            </div>
+        </section>
+        <%- include('./partials/footer.ejs')%>
+        <script>
+            const fm = document.querySelector('form');
+            const nugget = document.querySelector('#nugget');
+            const limit = nugget.value;
+            let max = 30;
+
+            // function nuggetLimit(required, errMessage, successM) {
+            //     const sm = document.querySelector('small');
+            //     if (limit > max) {
+            //         sm.innerText = errMessage;
+            //         sm.className = `message`;
+            //     } elseIf(limit === '') {
+            //         sm.innerText = required
+            //     }
+            //     else{
+            //         sm.innerText = successM
+            //     }
+            // }
+
+            // fm.addEventListener('submit', (e) => {
+            //     e.preventDefault();
+            //     nuggetLimit('value is required', 'max must not be more than 30 words', 'good to go');
+            // });
+        </script>
+        <!-- <script src="script/app.js"></script>
+        <script src="script/os.js"></script>
+        <script src="script/file-system.js"></script>
+        <script src="script/stream.js"></script> -->
+        <!-- <script src="script/create-server.js"></script> -->
+    </body>
+</html>

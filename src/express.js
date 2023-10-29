@@ -7,24 +7,26 @@ const app = express();
 const Blog = require('./models/blog');
 
 //mongoDB connect
-const dbUrl =
-    'mongodb+srv://dike:hellow@dike-code.zjfjv0l.mongodb.net/dike?retryWrites=true&w=majority';
-mongoose
-    .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => {
-        return app.listen(3000) + console.log('db connected');
-    })
-    .catch((err) => console.log(err));
+// const dbUrl =
+//     'mongodb+srv://dike:hellow@dike-code.zjfjv0l.mongodb.net/dike?retryWrites=true&w=majority';
+// mongoose
+//     .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then((result) => {
+//         return app.listen(3000) + console.log('db connected');
+//     })
+//     .catch((err) => console.log(err));
 
 // set enigine
 app.set('view engine', 'ejs');
 
+// static files
 app.use(express.static('public'));
-
+// urlEncode
+app.use(express.urlencoded({extended: true}))
 // morgan
 app.use(morgan('dev'));
 
-// app.listen(3000);
+app.listen(3000);
 
 app.get('/', (req, res) => {
     res.render('index', { title: 'Home' });
@@ -42,6 +44,15 @@ app.get('/blogs', (req, res) => {
         })
         .catch((err) => console.log(err));
 });
+
+//POST BLOG DATAS
+app.post('/blogs', (req, res) => {
+    const blog = new Blog(req.body);
+
+    blog.save().then((result) => {
+        res.redirect('blogs')
+    }).catch((err) => console.log(err))
+})
 
 // Render the blog field
 app.get('/create', (req, res) => {
