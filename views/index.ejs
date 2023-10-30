@@ -19,14 +19,26 @@
                     </h3>
                     <p class="show-txt">
                         Share your thought ideas in print and the world will
-                        know who.
+                        know who you are.
                     </p>
+                    <div class="buttons">
+                        <a href="" class="try-free btn">Try-its Free</a>
+                        <a href="" class="signIn btn">Sign in</a>
+                    </div>
                 </div>
             </div>
+            <div class="overlay"></div>
         </div>
-         <%- include('./partials/footer.ejs')%>
-        <!-- <script src="script/app.js"></script>
-        <script src="script/os.js"></script>
+        <%- include('./partials/footer.ejs')%>
+        <script>
+            const menu = document.querySelector('#mobileMenu');
+            const nav = document.querySelector('.navigations');
+
+            menu.addEventListener('click', (e) => {
+                nav.classList.toggle('show');
+            });
+        </script>
+        <!--script src="script/os.js"></script>
         <script src="script/file-system.js"></script>
         <script src="script/stream.js"></script> -->
         <!-- <script src="script/create-server.js"></script> -->

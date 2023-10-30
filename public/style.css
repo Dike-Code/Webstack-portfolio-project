@@ -1,6 +1,6 @@
 /** @format */
 
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&family=Poppins:wght@300;400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&family=Poppins:wght@300;400;800&display=swap');
 
 :root {
     --redish: #e91d63;
@@ -57,6 +57,15 @@ html {
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
 img {
     width: 100%;
 }
@@ -75,11 +84,12 @@ p {
 
 body {
     width: 100%;
-    font-family: "Oswald", sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 15px;
     line-height: 1.5;
     height: 100vh;
     position: relative;
+    background: var(--Anti-flash-white);
 }
 
 .navbar {
@@ -101,7 +111,9 @@ body {
 .logo {
     color: var(--redish);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 24px;
+    position: relative;
+    z-index: 4;
 }
 
 .navigations .navList {
@@ -143,16 +155,55 @@ body {
     background: url('../img/blogBg.jpg') center 100px;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
 .showcase .flex {
     justify-content: start;
     height: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .show-title {
     color: var(--Platinum);
     font-size: 100px;
+    font-weight: 700;
+}
+
+.show-sub-title {
+    color: var(--Platinum);
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.show-txt {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--Platinum);
+}
+
+.showcase .buttons {
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    gap: 15px;
+}
+
+.showcase .btn {
+    display: block;
+    width: 150px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.try-free {
+    background: var(--Cadet);
+    color: var(--Anti-flash-white);
+}
+.signIn {
+    background: var(--Platinum);
+    color: var(--Cadet);
 }
 
 /* blogSection */
@@ -166,7 +217,7 @@ body {
     gap: 20px;
 }
 
-.allBlog{
+.allBlog {
     font-size: 40px;
     font-weight: 700;
 }
@@ -179,18 +230,17 @@ body {
     transform: scale(1);
 }
 
-.blogSection .cardBody{
+.blogSection .cardBody {
     padding: 20px;
 }
-
 
 /* form section */
 .createBlog {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100%;
     padding: 100px 0;
-    background: var(--Anti-flash-white);
 }
 
 .createBlog .container {
@@ -238,10 +288,11 @@ body {
 
 .footer {
     width: 100%;
-    background: var(--Payne);
-    padding: 30px 0;
-    position:fixed;
+    background: var(--Cadet);
+    padding: 20px 0;
+    position: relative;
     bottom: 0;
+    /* z-index: 2; */
 }
 
 .footer .flex {
@@ -249,7 +300,99 @@ body {
     align-items: center;
 }
 
-.footer .navList {
+.copy {
+    color: var(--Anti-flash-white);
+}
+.copyIcon {
+    color: var(--redish);
+}
+
+.footer .socials {
     list-style-type: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socials .soc-items {
+    border: 2px solid var(--redish);
+    border-radius: 100px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.footer .logo {
+    font-size: 25px;
+}
+
+/* media_query */
+@media (max-width: 768px) {
+    .navigations {
+        position: fixed;
+        left: -500px;
+        top: 0;
+        width: 0;
+        height: 100%;
+        z-index: -1;
+        background: #282d42;
+        transition: 0.5s ease;
+    }
+    .navigations.show {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 300px;
+        height: 100%;
+        z-index: 2;
+        background: var(--Cadet);
+        transition: 0.5s ease;
+    }
+
+    .navigations .navList {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .navigations .nav-items {
+        padding: 20px;
+    }
+
+    .toggleMenu {
+        background: var(--redish);
+        padding: 10px;
+        border-radius: 3px;
+    }
+
+    .toggleMenu .bar {
+        width: 25px;
+        height: 3px;
+        margin: 3px;
+        display: block;
+        background: #fff;
+    }
+
+    /* showecase */
+    .show-title {
+        font-size: 60px;
+    }
+    .show-sub-title {
+        font-size: 20px;
+    }
+    .show-txt {
+        font-size: 1rem;
+    }
+
+    /* blogSection */
+    .blogSection .grid {
+        grid-template-columns:1fr;
+        gap: 20px;
+    }
+
+    .footer .flex {
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: column;
+    }
 }

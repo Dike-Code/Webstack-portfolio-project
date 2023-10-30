@@ -16,7 +16,7 @@
                 <div class="blog-content grid">
                     <% if(blogs.length > 0) { %> <% blogs.forEach((blog) => {%>
                     <div class="card">
-                        <img src="<%=blog.banner%>" alt="image">
+                        <img src="<%=blog.banner%>" alt="image" />
                         <div class="cardBody">
                             <h3><%= blog.title%></h3>
                             <p><%= blog.nugget%></p>
@@ -27,8 +27,15 @@
                 </div>
             </div>
         </section>
-         <%- include('./partials/footer.ejs')%>
+        <%- include('./partials/footer.ejs')%>
+        <script>
+            const menu = document.querySelector('#mobileMenu');
+            const nav = document.querySelector('.navigations');
 
+            menu.addEventListener('click', (e) => {
+                nav.classList.toggle('show');
+            });
+        </script>
         <!-- <script src="script/app.js"></script>
         <script src="script/os.js"></script>
         <script src="script/file-system.js"></script>
