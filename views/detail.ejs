@@ -5,31 +5,13 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Webstack | Portfolio-Project <%=headTitle%></title>
+        <title>Webstack | Portfolio-Project</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
         <%- include('./partials/nav.ejs')%>
-        <section class="blogSection">
-            <div class="container">
-                <h2 class="allBlog"><%=title%></h2>
-                <div class="blog-content grid">
-                    <% if(blogs.length > 0) { %> <% blogs.forEach((blog) => {%>
-                    <div class="card">
-                        <img src="<%=blog.banner%>" alt="image" />
-                        <div class="cardBody">
-                            <h3><%= blog.title%></h3>
-                            <p><%= blog.nugget%></p>
-                            <a href="/blogs/<%=blog._id%>" class="cardBtn"
-                                >Read More</a
-                            >
-                        </div>
-                    </div>
-                    <%})%> <%}%>
-                </div>
-            </div>
-        </section>
+        <h2><%=blog.title%></h2>
         <%- include('./partials/footer.ejs')%>
         <script>
             const menu = document.querySelector('#mobileMenu');

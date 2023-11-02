@@ -5,7 +5,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>NodeJs Mastery</title>
+        <title>Webstack | Portfolio-Project <%=create%></title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="./style.css" />
     </head>
 
@@ -59,30 +60,6 @@
         </section>
         <%- include('./partials/footer.ejs')%>
         <script>
-            const fm = document.querySelector('form');
-            const nugget = document.querySelector('#nugget');
-            const limit = nugget.value;
-            let max = 30;
-
-            // function nuggetLimit(required, errMessage, successM) {
-            //     const sm = document.querySelector('small');
-            //     if (limit > max) {
-            //         sm.innerText = errMessage;
-            //         sm.className = `message`;
-            //     } elseIf(limit === '') {
-            //         sm.innerText = required
-            //     }
-            //     else{
-            //         sm.innerText = successM
-            //     }
-            // }
-
-            // fm.addEventListener('submit', (e) => {
-            //     e.preventDefault();
-            //     nuggetLimit('value is required', 'max must not be more than 30 words', 'good to go');
-            // });
-        </script>
-        <script>
             const menu = document.querySelector('#mobileMenu')
             const nav = document.querySelector('.navigations')
             
@@ -90,7 +67,7 @@
                 nav.classList.toggle('show')
             })
         </script>
-        <!-- <script src="script/app.js"></script>
+        <!-- <script src="script/app.js"></>
         <script src="script/os.js"></script>
         <script src="script/file-system.js"></script>
         <script src="script/stream.js"></script> -->

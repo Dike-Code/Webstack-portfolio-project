@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 
 blogSchema = new Schema(
     {
+        
         banner: {
             type: String,
             required: true,

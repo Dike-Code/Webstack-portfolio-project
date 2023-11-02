@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 // static files
 app.use(express.static('public'));
 // urlEncode
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
 // morgan
 app.use(morgan('dev'));
 
@@ -34,7 +34,8 @@ app.get('/', (req, res) => {
 
 // Render allblogs in view
 app.get('/blogs', (req, res) => {
-    Blog.find().sort({createdAt: - 1})
+    Blog.find()
+        .sort({ createdAt: -1 })
         .then((result) => {
             res.render('blogs', {
                 headTitle: 'Blogs',
@@ -49,14 +50,28 @@ app.get('/blogs', (req, res) => {
 app.post('/blogs', (req, res) => {
     const blog = new Blog(req.body);
 
-    blog.save().then((result) => {
-        res.redirect('blogs')
-    }).catch((err) => console.log(err))
-})
+    blog.save()
+        .then((result) => {
+            res.redirect('blogs');
+        })
+        .catch((err) => { console.log(err) });
+});
+
+// blogDetails
+app.get('/blogs/:id', (req, res) => {
+    const ids = req.params.id;
+    Blog.findById(ids)
+        .then((result) => {
+            res.render('detail', { title: 'Blog Details', blog: result });
+        })
+        .catch((err) => {
+            console.log(err)
+        });
+});
 
 // Render the blog field
 app.get('/create', (req, res) => {
-    res.status(200).render('createBlog');
+    res.status(200).render('createBlog', { create: 'Creat-Blog' });
 });
 
 app.use((req, res) => {
