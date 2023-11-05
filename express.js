@@ -14,7 +14,7 @@ mongoose
     .then((result) => {
         return app.listen(3000) + console.log('db connected');
     })
-    .catch((err) => console.log(err));
+//     .catch((err) => console.log(err));
 
 // set enigine
 app.set('view engine', 'ejs');
@@ -45,7 +45,18 @@ app.get('/blogs', (req, res) => {
         })
         .catch((err) => console.log(err));
 });
-
+// blogDetails
+app.get('/blogs/:id', (req, res) => {
+    const ids = req.params.id;
+    console.log(ids)
+    Blog.findById(ids)
+        .then((result) => {
+            res.render('detail', { blog: result, title: 'Blog Details'});
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
 //POST BLOG DATAS
 app.post('/blogs', (req, res) => {
     const blog = new Blog(req.body);
@@ -54,20 +65,11 @@ app.post('/blogs', (req, res) => {
         .then((result) => {
             res.redirect('blogs');
         })
-        .catch((err) => { console.log(err) });
-});
-
-// blogDetails
-app.get('/blogs/:id', (req, res) => {
-    const ids = req.params.id;
-    Blog.findById(ids)
-        .then((result) => {
-            res.render('detail', { title: 'Blog Details', blog: result });
-        })
         .catch((err) => {
-            console.log(err)
+            console.log(err);
         });
 });
+
 
 // Render the blog field
 app.get('/create', (req, res) => {

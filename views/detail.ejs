@@ -6,12 +6,29 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Webstack | Portfolio-Project</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="./style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="/style.css" />
     </head>
     <body>
         <%- include('./partials/nav.ejs')%>
-        <h2><%=blog.title%></h2>
+        <section class="details">
+            <div class="container">
+                <img
+                    src="<%=blog.banner%>"
+                    alt="banner"
+                    class="bannerImg"
+                    style="height: 200px; width: 100% !important"
+                />
+                <h2><%=blog.title%></h2>
+                <p><%=blog.nugget%></p>
+            </div>
+        </section>
         <%- include('./partials/footer.ejs')%>
         <script>
             const menu = document.querySelector('#mobileMenu');
