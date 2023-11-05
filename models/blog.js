@@ -8,6 +8,7 @@ blogSchema = new Schema(
         
         banner: {
             type: String,
+            default: 'https://placehold.co/600x400',
             required: true,
         },
         title: {
